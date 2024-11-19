@@ -1,13 +1,18 @@
 {
   "files": [],
   "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
   ],
   "compilerOptions": {
     "types": [
       "@intlify/unplugin-vue-i18n/messages",
-      "unplugin-vue-router/client"
+      "unplugin-vue-router/client",
+      "element-plus/global"
     ]
   }
 }
