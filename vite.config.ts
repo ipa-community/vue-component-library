@@ -7,6 +7,7 @@ import UnoCSS from "unocss/vite";
 import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite";
 import path from "path";
 import VueRouterPlugin from "unplugin-vue-router/vite";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -29,8 +30,11 @@ export default defineConfig({
         "@vueuse/math",
       ],
       ignore: [],
+      resolvers: [ElementPlusResolver()],
     }),
-    Components({}),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
     Icons({
       autoInstall: true,
     }),
