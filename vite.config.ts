@@ -8,9 +8,20 @@ import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite";
 import path from "path";
 import VueRouterPlugin from "unplugin-vue-router/vite";
 
+import { crx } from "@crxjs/vite-plugin";
+import manifest from "./manifest.config";
+import zip from "vite-plugin-zip-pack";
+
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    cors: {
+      origin: [/chrome-extension:\/\//],
+    },
+  },
   plugins: [
+    crx({ manifest }),
+    zip({ outDir: "release", outFileName: "release.zip" }),
     VueRouterPlugin({}),
     vue(),
     AutoImport({
