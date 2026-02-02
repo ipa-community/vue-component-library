@@ -5,7 +5,8 @@
 import type { VNode } from "vue";
 
 import type { Column, TableColumnCtx } from "element-plus/es";
-import { Pager, PageResult } from "@/types/page";
+
+import type { PageResult, Pager } from "@ipa-schema/api";
 
 /**
  * 列合并模式

@@ -20,10 +20,10 @@
       <el-table
         ref="tableRef"
         v-if="version === 'v1'"
-        v-bind="tableProps"
         :data="modelValue"
         class="el-table-plus__table"
         stripe
+        v-bind="tableProps"
       >
         <template v-for="col in actualColumns" :key="col.prop || col.label">
           <el-table-column v-bind="col">
@@ -33,7 +33,7 @@
                 :is="col.cellRenderer({ row, column })"
               />
               <div v-else-if="isColumnDefaultType(col)">
-                {{ row[col.prop || col.dataKey!] }}
+                {{ row[getColumnKey(col)] }}
               </div>
             </template>
           </el-table-column>
@@ -249,7 +249,6 @@ const filterColumns = (columns: TableColumn<any>[]): TableColumn<any>[] => {
 const actualColumns = computed<TableColumn<any>[]>(() => {
   // 自动推测列
   const inferredColumns = inferColumnsFromData(modelValue.value as any[]);
-
   // 根据合并模式处理列
   const mode = props.columnMergeMode || "replace";
   const customColumns = (props.columns ?? []).map((col) =>
@@ -288,7 +287,7 @@ const actualColumns = computed<TableColumn<any>[]>(() => {
   }
   mergedColumns = mergedColumns
     .map((col) => {
-      Object.assign(col, props.columnProps[col.dataKey as string] || {});
+      Object.assign(col, props.columnProps[getColumnKey(col) as string] || {});
       return col;
     })
     .sort((a, b) => {
@@ -341,7 +340,6 @@ const loadData = async (resetPage = false, data?: PageResult<T>) => {
       pageAt: currentPage.value,
       pageSize: pageSize.value,
       pageBase: 1,
-      total: 0,
     };
     const result = await props.fetchData(params);
     onDataFetched(result);
@@ -390,7 +388,7 @@ const tableRef = useTemplateRef("tableRef");
 
 const deleteRow = (
   row: any,
-  predicate?: (v: T, idx: number, arr: any[]) => boolean,
+  predicate?: (v: T, idx: number, arr: T[]) => boolean,
 ) => {
   predicate = predicate ?? ((v) => v === row);
   const at = modelValue.value.findIndex(predicate);
