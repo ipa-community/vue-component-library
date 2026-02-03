@@ -32,14 +32,16 @@ export default defineConfig({
     // FIXME: 设置为true时，只导入组件不会自动关联对应样式，暂不清楚怎么解决
     cssCodeSplit: false,
     rollupOptions: {
-      external: ["vue", "pinia", "vue-router"],
+      external: ["vue", "element-plus", "pinia", "vue-router"],
       output: {
         dir: "./lib",
         globals: {
           vue: "Vue",
-          pinia: "Pinia",
-          "vue-router": "VueRouter",
+          "element-plus": "ElementPlus", // Element Plus的全局变量名（官方规范）
+          pinia: "Pinia", // Pinia的全局变量名（官方规范）
+          "vue-router": "VueRouter", // Vue Router的全局变量名（官方规范）
         },
+        // assetFileNames: "assets/[name].[ext]",
       },
     },
   },

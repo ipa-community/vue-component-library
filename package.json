@@ -1,7 +1,7 @@
 {
-  "name": "@leoking/element-plus",
+  "name": "@ipa-community/element-plus",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.12",
   "type": "module",
   "files": [
     "lib",
@@ -50,7 +50,6 @@
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
-    "@vueuse/head": "^2.0.0",
     "prettier": "^3.6.2",
     "lint-staged": "^16.2.7",
     "eslint-config-prettier": "^10.1.8",
@@ -59,10 +58,12 @@
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@eslint/js": "^9.39.1",
+    "@iconify-json/tabler": "^1.2.26",
     "@types/bun": "latest",
     "@unocss/eslint-config": "^66.5.9",
     "@vitejs/plugin-vue": "^6.0.4",
     "@vue-macros/eslint-config": "^3.1.1",
+    "@vueuse/head": "^2.0.0",
     "cross-env": "^10.1.0",
     "eslint": "^9.39.1",
     "eslint-plugin-vue": "^10.8.0",
