@@ -80,6 +80,7 @@
 <script setup lang="ts" generic="T extends Record<string, any> = any">
 import type { PageResult, Pager } from "@ipa-schema/api";
 import type { ElTablePlusProps, TableColumn } from "./types";
+import { useSessionStorage } from "@vueuse/core";
 import { useI18n } from "vue-i18n";
 import { isEmpty } from "lodash-es";
 import TablerRefresh from "~icons/tabler/refresh";
@@ -97,7 +98,7 @@ const props = withDefaults(defineProps<ElTablePlusProps<T>>(), {
   paginationLayout: "total, sizes, prev, pager, next, jumper",
   paginationBackground: true,
   showPagination: true,
-  emptyText: "暂无数据",
+  emptyText: i18n.t("emptyText"),
   useStandardTable: false,
   tableProps: () => ({}),
   columnProps: () => ({}),
@@ -120,7 +121,10 @@ const modelValue = defineModel<T[]>({
 
 const total = ref(0);
 const currentPage = ref(props.initialPage);
-const pageSize = ref(props.initialPageSize);
+const pageSize = useSessionStorage(
+  "el-table-plus-page-size",
+  props.initialPageSize,
+);
 
 const isColumnDefaultType = (col: any) => {
   const type = col.type;
@@ -383,8 +387,6 @@ const refresh = () => {
 const reset = () => {
   loadData(true);
 };
-
-const tableRef = useTemplateRef("tableRef");
 
 const deleteRow = (
   row: any,
