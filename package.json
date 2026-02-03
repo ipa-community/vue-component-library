@@ -1,7 +1,7 @@
 {
   "name": "@ipa-community/element-plus",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.11",
   "type": "module",
   "files": [
     "lib",

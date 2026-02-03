@@ -98,7 +98,7 @@ const props = withDefaults(defineProps<ElTablePlusProps<T>>(), {
   paginationLayout: "total, sizes, prev, pager, next, jumper",
   paginationBackground: true,
   showPagination: true,
-  emptyText: i18n.t("emptyText"),
+  emptyText: "暂无数据",
   useStandardTable: false,
   tableProps: () => ({}),
   columnProps: () => ({}),
