@@ -17,7 +17,7 @@
       </div>
     </slot>
     <div v-loading="loading" class="el-table-plus__container">
-      <el-table
+      <ElTable
         ref="tableRef"
         v-if="version === 'v1'"
         :data="modelValue"
@@ -26,7 +26,7 @@
         v-bind="tableProps"
       >
         <template v-for="col in actualColumns" :key="col.prop || col.label">
-          <el-table-column v-bind="col">
+          <ElTableColumn v-bind="col">
             <template #default="{ row, column }">
               <component
                 v-if="col.cellRenderer"
@@ -36,18 +36,18 @@
                 {{ row[getColumnKey(col)] }}
               </div>
             </template>
-          </el-table-column>
+          </ElTableColumn>
         </template>
         <template #empty>
           <slot name="empty">
             <el-empty :description="emptyText" />
           </slot>
         </template>
-      </el-table>
+      </ElTable>
 
       <el-auto-resizer v-else class="el-table-plus__resizer">
         <template #default="{ height, width }">
-          <el-table-v2
+          <ElTableV2
             ref="tableRef"
             v-bind="tableProps"
             :columns="actualColumns"
@@ -63,7 +63,7 @@
       v-if="showPagination && (modelValue.length > 0 || total > 0)"
       class="el-table-plus__pagination"
     >
-      <el-pagination
+      <ElPagination
         v-model:current-page="currentPage"
         v-model:page-size="pageSize"
         :page-sizes="pageSizeOptions"
@@ -80,12 +80,14 @@
 </template>
 
 <script setup lang="ts" generic="T extends Record<string, any> = any">
+import { ElPagination, ElTable, ElTableV2, ElTableColumn } from "element-plus";
 import type { PageResult, Pager } from "@ipa-schema/api";
 import type { ElTablePlusProps, TableColumn } from "./types";
 import { useSessionStorage } from "@vueuse/core";
 import { useI18n } from "vue-i18n";
 import { isEmpty } from "lodash-es";
 import TablerRefresh from "~icons/tabler/refresh";
+// TODO: 尝试inject("i18n")
 const i18n = useI18n();
 
 const props = withDefaults(defineProps<ElTablePlusProps<T>>(), {
@@ -206,7 +208,7 @@ const normalizeColumn = (col: TableColumn<any>): TableColumn<any> => {
     normalized.key = getColumnKey(col);
   }
 
-  // 如果没有 dataKey（el-table-v2 需要），使用 prop 或 key
+  // 如果没有 dataKey（ElTableV2 需要），使用 prop 或 key
   if (!normalized.dataKey && normalized.prop) {
     normalized.dataKey = normalized.prop;
   }
