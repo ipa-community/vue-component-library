@@ -5,7 +5,6 @@
  * @LastEditors: leoking
  * @Description:
  */
-import "./index.css";
 
 import "./index.css";
 
