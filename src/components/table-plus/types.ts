@@ -4,7 +4,7 @@
 
 import type { VNode } from "vue";
 
-import type { Column, TableColumnCtx } from "element-plus/es";
+import type { Column, TableColumnCtx, PaginationProps } from "element-plus/es";
 import type { Pager, PageResult } from "@ipa-schema/api";
 
 /**
@@ -61,4 +61,5 @@ export interface ElTablePlusProps<T = any> {
   /** 传递给 el-table 的其他属性 */
   tableProps?: Record<string, any>;
   columnProps?: Record<string, Partial<TableColumn<any>>>;
+  paginationProps?: Partial<PaginationProps>;
 }

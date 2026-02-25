@@ -72,6 +72,8 @@
         :background="paginationBackground"
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
+        :teleported="false"
+        v-bind="paginationProps"
       />
     </div>
   </div>
@@ -102,6 +104,7 @@ const props = withDefaults(defineProps<ElTablePlusProps<T>>(), {
   useStandardTable: false,
   tableProps: () => ({}),
   columnProps: () => ({}),
+  paginationProps: () => ({}),
 });
 
 const emit = defineEmits<{
