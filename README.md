@@ -85,3 +85,7 @@ or test release
 ```bash
 bun run release --dry-run
 ```
+
+## tips
+
+1. **do not** use `unplugin-*` in `lib`
