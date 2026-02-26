@@ -18,6 +18,7 @@ declare module 'vue' {
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElTablePlus: typeof import('./src/components/table-plus/ElTablePlus.vue')['default']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
+    GanttChart: typeof import('./src/components/gantt-chart/GanttChart.vue')['default']
     HelloWorld: typeof import('./src/components/hello-world/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

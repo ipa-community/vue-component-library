@@ -38,14 +38,17 @@
     "release": "release-it"
   },
   "dependencies": {
+    "@ipa-community/node-kit": "^0.0.4",
     "@ipa-schema/api": "^0.0.12",
     "@vueuse/core": "^14.2.1",
     "@vueuse/math": "^14.2.1",
     "dayjs": "^1.11.19",
+    "echarts": "^6.0.0",
     "element-plus": "^2.13.2",
     "lodash-es": "^4.17.23",
     "pinia": "^3.0.4",
     "vue": "^3.5.29",
+    "vue-echarts": "^8.0.1",
     "vue-i18n": "^11.2.8",
     "vue-router": "^4.6.3"
   },
