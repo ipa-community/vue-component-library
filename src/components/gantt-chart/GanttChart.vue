@@ -32,7 +32,7 @@ const modelValue = defineModel<GanttItem[]>({
   required: true,
 });
 
-const chartRef = useTemplateRef("chartRef");
+// const chartRef = useTemplateRef("chartRef");
 
 const buildData = (items: GanttItem[]) => {
   const categories = items.map((i) => i.name);
