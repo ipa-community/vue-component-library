@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 lib
+release
 
 # Editor directories and files
 .vscode/*
@@ -25,3 +26,4 @@ lib
 *.sw?
 .env
 .env.*
+.marscode
