@@ -31,13 +31,14 @@ export default defineConfig({
     // FIXME: 设置为true时，只导入组件不会自动关联对应样式，暂不清楚怎么解决
     cssCodeSplit: false,
     rollupOptions: {
-      external: ["vue", "pinia", "vue-router"],
+      external: ["vue", "pinia", "vue-router", "naive-ui"],
       output: {
         dir: "./lib",
         globals: {
           vue: "Vue",
           pinia: "Pinia",
           "vue-router": "VueRouter",
+          "naive-ui": "NaiveUI",
         },
       },
     },

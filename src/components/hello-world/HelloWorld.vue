@@ -9,7 +9,7 @@ const count = ref(0);
 
 <template>
   <div class="text-center">
-    <button @click="toggleTheme()">切换主题</button>
+    <n-button @click="toggleTheme()">切换主题</n-button>
 
     <div>
       <a href="https://vite.dev" target="_blank">

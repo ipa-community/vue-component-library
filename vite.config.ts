@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import AutoImport from "unplugin-auto-import/vite";
@@ -7,6 +8,7 @@ import UnoCSS from "unocss/vite";
 import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite";
 import path from "path";
 import VueRouterPlugin from "unplugin-vue-router/vite";
+import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -27,10 +29,20 @@ export default defineConfig({
         "@vueuse/core",
         "@vueuse/head",
         "@vueuse/math",
+        {
+          "naive-ui": [
+            "useDialog",
+            "useMessage",
+            "useNotification",
+            "useLoadingBar",
+          ],
+        },
       ],
       ignore: [],
     }),
-    Components({}),
+    Components({
+      resolvers: [NaiveUiResolver()],
+    }),
     Icons({
       autoInstall: true,
     }),

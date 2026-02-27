@@ -11,7 +11,7 @@ import { HelloWorld } from "../components/index";
 
 <template>
   <div class="text-center margin-x-auto pt-10">
-    <HelloWorld msg="Vite + Vue + Bun + UnoCSS + Unplugin + I18n" />
+    <HelloWorld msg="Vite + Vue + Bun + UnoCSS + Unplugin + I18n + NaiveUI" />
   </div>
 </template>
 

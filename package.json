@@ -1,14 +1,16 @@
 {
-  "name": "@leoking/vue-tmpl",
+  "name": "@ipa-community/naive-ui",
   "private": false,
   "version": "0.0.1",
   "type": "module",
   "files": [
     "lib",
+    ".eslintrc-auto-import.cjs",
     "eslint.config.js",
     "auto-imports.d.ts",
     "components.d.ts",
-    "tsconfig.lib.json"
+    "tsconfig.lib.json",
+    "tsconfig.lib.ts"
   ],
   "exports": {
     ".": {
@@ -78,7 +80,9 @@
     "unplugin-vue-router": "^0.19.2",
     "vite": "^7.3.1",
     "vitest": "^4.0.18",
-    "vue-tsc": "^3.2.5"
+    "vue-tsc": "^3.2.5",
+    "naive-ui": "^2.43.2",
+    "vfonts": "^0.0.3"
   },
   "publishConfig": {
     "access": "public",
